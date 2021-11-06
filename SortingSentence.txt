@@ -1,0 +1,9 @@
+var sortSentence = function(s) {
+var a = [];
+a = s.split(" ")
+var b = [];
+b = a.sort(function(a,b){return a.slice(-1)-b.slice(-1)})
+b = b.map((i)=>{return i.slice(0,-1) })
+b = b.join(" ")
+return b;
+};

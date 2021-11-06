@@ -1,0 +1,46 @@
+function BubbleSort(arr){
+    var len = arr.length;
+    for(var i=0;i<len;i++){
+        for(var j=0;j<len-i-1;j++){
+            if(arr[j]>arr[j+1]){
+                var temp = arr[j+1];
+                arr[j+1] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    
+    return arr;
+}
+
+function converNum(arr){
+    var a = [];
+    for(var i=0;i<arr.length;i++){
+        a.push(arr[i].charCodeAt(0))
+    }
+    
+    a = BubbleSort(a);
+    return a;
+}
+var isAnagram = function(s, t) {
+    s = converNum(s);
+    t = converNum(t);
+    var i=0,j=0,flag=0;
+    while(i<s.length&&j<t.length){
+        if(s[i]===t[j]){
+        i++;
+        j++;
+        }
+        else{
+            return false
+        }
+        
+    }
+       if(i===s.length&&j===t.length){
+            return true;
+    }
+    else{
+        return false;
+    }
+  
+};

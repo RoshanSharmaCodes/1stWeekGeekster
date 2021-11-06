@@ -1,0 +1,26 @@
+function BinarySearchRecursion(arr,val,left,right){
+    if(left<=right){
+    flag = 0;
+    var mid = Math.floor(left+(right-left)/2);
+    if(arr[mid]===val){
+        flag = mid;
+        return mid;
+    }
+    if(arr[mid]<val){
+        BinarySearchRecursion(arr,val,mid+1,right);
+    }
+    else{
+        BinarySearchRecursion(arr,val,left,mid-1);
+    }
+    
+    if(flag===0){
+    return -1;    
+    }else{
+    return flag;
+    }    
+    }
+}
+
+arr = [1,2,3,6,7,8,9];
+var result = BinarySearchRecursion(arr,3,0,arr.length-1);
+console.log(result);

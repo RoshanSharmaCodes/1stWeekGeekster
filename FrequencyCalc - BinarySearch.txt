@@ -1,0 +1,30 @@
+function FrequencyCalc(arr,val){
+    var low = 0;
+    var high = arr.length-1;
+    var frequency = 0;
+    while(low<high){
+        var mid = Math.floor(low+(high-low)/2);
+        if(arr[mid]<=val){
+            low = mid+1;
+        }
+        else{
+            high=mid;
+        }
+    }
+    
+    if(arr[low-1]===val){
+        var i=low-1;
+        while(arr[i]===val){
+            i--;
+            frequency++;
+        }
+        return frequency;
+    }else{
+        console.log(low-1);
+        return -1;
+    }
+}
+
+
+var result = FrequencyCalc([1,2,3,3,4,4,4,5,6,6,6,6,7],6);
+console.log(result);

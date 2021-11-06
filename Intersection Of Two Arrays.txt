@@ -1,0 +1,33 @@
+function InsertionSort(arr){
+    for(var i=0;i<arr.length;i++){
+        var j=i-1;
+        var key = arr[i];
+        while(j>=0&&arr[j]>key){
+            arr[j+1] = arr[j];
+            j--;
+        }
+        
+        arr[j+1] = key;
+    }
+    
+    return arr;
+}
+var intersection = function(arr1, arr2) {
+   arr1 = InsertionSort(arr1);
+    arr2 = InsertionSort(arr2);
+    var i=0,j=0,result = [];
+    while(i<arr1.length&&j<arr2.length){
+        if(arr1[i]===arr2[j]){
+            result.push(arr1[i]);
+            i++;
+            j++;
+        }else if(arr1[i]<arr2[j]){
+            i++;
+        }
+        else if(arr1[i]>arr2[j]){
+            j++;
+        }
+    }
+   result = [... new Set(result)]
+    return result;
+};

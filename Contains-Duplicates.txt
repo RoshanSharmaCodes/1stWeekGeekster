@@ -1,0 +1,25 @@
+function BubbleSort(arr){
+    var len = arr.length;
+    for(var i=0;i<len;i++){
+        for(var j=0;j<len-i-1;j++){
+            if(arr[j]>arr[j+1]){
+                var temp = arr[j+1];
+                arr[j+1] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    
+    return arr;
+}
+var containsDuplicate = function(nums) {
+     nums = BubbleSort(nums);
+    for(var i=0;i<nums.length;i++){
+        var j=i+1;
+        if(nums[i]===nums[j]&&j<nums.length){
+            return true
+        }
+    }
+    
+    return false;   
+};
