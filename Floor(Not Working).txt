@@ -3,8 +3,7 @@ function floor(arr,val){
     var high = arr.length-1;
     while(low<=high){
         var mid = Math.floor(low+(high-low)/2);
-        console.log(arr[low],arr[mid],arr[high]);
-        if(arr[mid]>val){
+        if(arr[mid]>=val){
             high = mid-1;
         }
         else
@@ -16,5 +15,5 @@ function floor(arr,val){
 }
 
 
-var result = floor([2,3,5,6,7],7);
+var result = floor([2,3,5,6,7],6);
 console.log(result);
